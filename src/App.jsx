@@ -2,14 +2,15 @@ import { useEffect, useState } from "react";
 import { Header } from "./Components/Header/Header";
 import { ProductCart } from "./Components/productCart/ProductCart";
 import { ProductList } from "./Components/ProductList/ProductList";
+import { StyleApp } from "./Components/styleApp";
 import { api } from "./Services/api";
+import { Reset } from "./styles/reset";
 
 function App() {
   const [products, setProducts] = useState([]);
   const [productCart, setProductCart] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [currentSale, setCurrentSale] = useState([]);
-  const [cartTotal, setCartTotal] = useState(0);
+  const [search, setSearch] = useState("");
 
   const addProductCart = (product) => {
     if (!productCart.some((prod) => prod.id === product.id)) {
@@ -46,34 +47,38 @@ function App() {
   );
 
   return (
-    <div className="App">
+    <StyleApp className="App">
+      <Reset />
       <Header
         filteredProducts={filteredProducts}
         setFilteredProducts={setFilteredProducts}
+        search={search}
+        setSearch={setSearch}
       />
-      <ProductList
-        searchProduct={searchProduct}
-        products={products}
-        addProductCart={addProductCart}
-      />
-      <aside>
-        <div>
+      <div className="container">
+        <ProductList
+          searchProduct={searchProduct}
+          products={products}
+          addProductCart={addProductCart}
+        />
+        <aside>
           <h1>Carrinho de compras</h1>
-        </div>
-        {productCart.length > 0 ? (
-          <ProductCart
-            productCart={productCart}
-            removeProductCart={removeProductCart}
-            setProductCart={setProductCart}
-          />
-        ) : (
-          <div>
-            <h2>Sua sacola está vazia</h2>
-            <p>Adicione itens</p>
-          </div>
-        )}
-      </aside>
-    </div>
+
+          {productCart.length > 0 ? (
+            <ProductCart
+              productCart={productCart}
+              removeProductCart={removeProductCart}
+              setProductCart={setProductCart}
+            />
+          ) : (
+            <div className="div_text_cart-1">
+              <h2>Sua sacola está vazia</h2>
+              <p>Adicione itens</p>
+            </div>
+          )}
+        </aside>
+      </div>
+    </StyleApp>
   );
 }
 
