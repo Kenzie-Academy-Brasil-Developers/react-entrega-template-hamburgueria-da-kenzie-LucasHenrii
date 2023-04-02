@@ -1,20 +1,33 @@
+import { useState } from "react";
 import logo from "../../assets/logo.svg";
+import { StyleHeader } from "./styleHeader";
 
-export const Header = ({ filteredProducts, setFilteredProducts }) => {
+export const Header = ({
+  filteredProducts,
+  setFilteredProducts,
+  search,
+  setSearch,
+}) => {
+  const [searchInput, setSearchInput] = useState("");
+  const submit = (event) => {
+    event.preventDefault();
+
+    setFilteredProducts(searchInput);
+    setSearchInput("");
+  };
   return (
-    <header>
-      <img src={logo} alt="" />
+    <StyleHeader>
+      <img src={logo} alt="Logo" />
 
-      <div>
+      <form onSubmit={submit}>
         <input
-          value={filteredProducts}
-          onChange={(event) =>
-            setFilteredProducts(event.target.value.toLowerCase())
-          }
+          value={searchInput}
+          onChange={(event) => setSearchInput(event.target.value.toLowerCase())}
           type="text"
+          placeholder="Digitar pesquisa"
         />
-        <button>Pesquisar</button>
-      </div>
-    </header>
+        <button type="submit">Pesquisar</button>
+      </form>
+    </StyleHeader>
   );
 };
