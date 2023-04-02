@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-toastify";
 import { StyleProductList } from "./styleProductList";
 
 export const ProductList = ({ products, addProductCart, searchProduct }) => {
@@ -20,6 +21,7 @@ export const ProductList = ({ products, addProductCart, searchProduct }) => {
                   currency: "BRL",
                 })}
               </span>
+              <ToastContainer />
               <button onClick={() => addProductCart(product)}>Adicionar</button>
             </div>
           </li>

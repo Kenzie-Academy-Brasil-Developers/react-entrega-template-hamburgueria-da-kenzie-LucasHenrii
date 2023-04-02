@@ -1,3 +1,8 @@
+import React from "react";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+
 export const ProductCart = ({
   productCart,
   removeProductCart,
@@ -6,6 +11,12 @@ export const ProductCart = ({
   const sum = productCart.reduce((previous, productValue) => {
     return previous + productValue.price;
   }, 0);
+
+  const notify = () =>
+    toast.success("Produtos removidos com sucesso!", {
+      autoClose: 1800,
+      position: "top-left",
+    });
 
   return (
     <>
@@ -38,7 +49,8 @@ export const ProductCart = ({
             })}
           </strong>
         </h3>
-        <button onClick={() => setProductCart([])}>Remover tudo</button>
+        <ToastContainer />
+        <button onClick={() => notify(setProductCart([]))}>Remover tudo</button>
       </div>
     </>
   );

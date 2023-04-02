@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyleProductList = styled.ul`
   display: flex;
-
+  margin-bottom: 10px;
   overflow-x: auto;
   gap: 1rem;
   padding: 1rem;
@@ -11,7 +11,7 @@ export const StyleProductList = styled.ul`
 
   li {
     width: 300px;
-    border: 2px solid #e0e0e0;
+    border: 2px solid var(--color-gray20);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,7 +22,7 @@ export const StyleProductList = styled.ul`
     width: 215px;
     height: 150px;
     object-fit: contain;
-    background: #f5f5f5;
+    background: var(--color-gray0);
   }
 
   li > div {
@@ -37,14 +37,24 @@ export const StyleProductList = styled.ul`
   li > div > button {
     width: 106px;
     height: 40px;
-    background-color: #27ae60;
+    background-color: var(--color-primary);
     color: white;
     border-radius: 8px;
     border: 1px solid transparent;
     cursor: pointer;
+    transition: 0.8s;
+  }
+
+  li > div > P {
+    color: var(--color-gray50);
+  }
+
+  li > div > button:hover {
+    opacity: 70%;
+    transition: 0.8s;
   }
 
   span {
-    color: #27ae60;
+    color: var(--color-primary);
   }
 `;

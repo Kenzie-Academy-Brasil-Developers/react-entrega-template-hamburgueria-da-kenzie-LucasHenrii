@@ -4,7 +4,7 @@ export const StyleHeader = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f5f5f5;
+  background-color: var(--color-gray0);
   height: 129px;
   justify-content: center;
   gap: 1rem;
@@ -18,18 +18,24 @@ export const StyleHeader = styled.header`
     align-items: center;
     border-radius: 8px;
     padding: 1rem;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--color-gray20);
     justify-content: space-between;
   }
 
   button {
     height: 40px;
     width: 107px;
-    background-color: #27ae60;
+    background-color: var(--color-primary);
     color: white;
     border: 1px solid transparent;
     border-radius: 8px;
     cursor: pointer;
+    transition: 0.8s;
+  }
+
+  button:hover {
+    opacity: 70%;
+    transition: 0.8s;
   }
 
   input {
@@ -39,7 +45,7 @@ export const StyleHeader = styled.header`
   }
 
   input::placeholder {
-    color: #e0e0e0;
+    color: var(--color-gray20);
   }
 
   @media (min-width: 1024px) {
