@@ -86,6 +86,7 @@ export const StyleApp = styled.div`
       gap: 1rem;
       background-color: var(--color-gray0);
       align-items: center;
+      height: 22vh;
     }
 
     .div_button_remove_all > button {
@@ -128,7 +129,7 @@ export const StyleApp = styled.div`
       flex-wrap: wrap;
       width: 67%;
       align-items: baseline;
-      height: 87vh;
+      height: 100vh;
 
       ::-webkit-scrollbar {
         width: 9px;
@@ -147,6 +148,7 @@ export const StyleApp = styled.div`
     .ul_cart {
       width: 100%;
       overflow-x: auto;
+      height: 53vh;
 
       ::-webkit-scrollbar {
         width: 9px;
@@ -172,8 +174,8 @@ export const StyleApp = styled.div`
     }
 
     .ul_list {
-      height: 87vh;
-      width: 70%;
+      height: 86vh;
+      width: 72%;
       justify-content: center;
 
       ::-webkit-scrollbar {
